@@ -9,113 +9,156 @@
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">My Portfolio</div>
-      <div>
+    <nav>
+      <div class="nav-links-container">
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li class="nav-logo"><img src="./assets/navbarlogo.jpeg" alt="Logo" /></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">iPortfolio</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Arthur Lumwagi</h1>
-        <p class="section__text__p2">Full Stack Web Developer</p>
+
+    <!-- START: HERO SECTION (profile) -->
+    <section id="profile" class="hero-page">
+      <div class="hero-inner">
+        <h1 class="title">Visual Storytelling</h1>
+        <p class="section__text__p2 hero-sub">Through the lens of emotion</p>
+        <p class="hero-lead">Every frame tells a story. I'm passionate about capturing authentic moments—the emotion, the light, the truth beneath the surface. Through portraits, events, and editorial work, I blend technical expertise with creative intuition to deliver photographs that communicate, inspire, and endure.</p>
         <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/resume-example.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
+          <button class="btn btn-color-2" onclick="location.href='./#projects'">View Portfolio</button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact</button>
         </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/feed/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https:/github.com/Gayalwa?tab=repositories'"
-          />
+      </div>
+      <button class="scroll-indicator" aria-label="Scroll down">
+        <div class="scroll-icon"></div>
+      </button>
+    </section>
+    <!-- END: HERO SECTION (profile) -->
+   
+    </section>
+    <!-- END: ABOUT SECTION (about) -->
+    <!-- START: PORTFOLIO SECTION (projects) -->
+    <section id="projects">
+      <h1 class="title">Portfolio</h1>
+      <p class="section__text__p1">Selected Works</p>
+      <div class="portfolio-container">
+        <div class="gallery-filters">
+          <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+          <button class="filter-btn" onclick="filterGallery('wedding', this)">Wedding</button>
+          <button class="filter-btn" onclick="filterGallery('adventure', this)">Adventure</button>
+          <button class="filter-btn" onclick="filterGallery('corporate', this)">Corporate</button>
+          <button class="filter-btn" onclick="filterGallery('hotel', this)">Hotel / BnB</button>
+          <button class="filter-btn" onclick="filterGallery('community', this)">Community</button>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Wedding -->
+          <figure class="gallery-item" data-category="wedding">
+            <img src="./assets/wedding-1.svg" alt="Wedding couple portrait" data-full="./assets/wedding-1.svg" onclick="openLightbox(this)" />
+            <figcaption>Wedding — Ceremony, 2024</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="wedding">
+            <img src="./assets/wedding-2.svg" alt="Wedding detail rings" data-full="./assets/wedding-2.svg" onclick="openLightbox(this)" />
+            <figcaption>Wedding — Rings & Details</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="wedding">
+            <img src="./assets/wedding-3.svg" alt="Wedding group photo" data-full="./assets/wedding-3.svg" onclick="openLightbox(this)" />
+            <figcaption>Wedding — Family Portrait</figcaption>
+          </figure>
+
+          <!-- Adventure -->
+          <figure class="gallery-item" data-category="adventure">
+            <img src="./assets/adventure-1.svg" alt="Hiker on ridge" data-full="./assets/adventure-1.svg" onclick="openLightbox(this)" />
+            <figcaption>Adventure — Mountain Ridge</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="adventure">
+            <img src="./assets/adventure-2.svg" alt="Kayaking at sunset" data-full="./assets/adventure-2.svg" onclick="openLightbox(this)" />
+            <figcaption>Adventure — Kayak Sunset</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="adventure">
+            <img src="./assets/adventure-3.svg" alt="Off-road vehicle" data-full="./assets/adventure-3.svg" onclick="openLightbox(this)" />
+            <figcaption>Adventure — Off-road</figcaption>
+          </figure>
+
+          <!-- Corporate -->
+          <figure class="gallery-item" data-category="corporate">
+            <img src="./assets/corporate-1.svg" alt="Corporate headshot" data-full="./assets/corporate-1.svg" onclick="openLightbox(this)" />
+            <figcaption>Corporate — Headshot</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="corporate">
+            <img src="./assets/corporate-2.svg" alt="Conference event" data-full="./assets/corporate-2.svg" onclick="openLightbox(this)" />
+            <figcaption>Corporate — Conference</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="corporate">
+            <img src="./assets/corporate-3.svg" alt="Office interior" data-full="./assets/corporate-3.svg" onclick="openLightbox(this)" />
+            <figcaption>Corporate — Office Space</figcaption>
+          </figure>
+
+          <!-- Hotel / BnB -->
+          <figure class="gallery-item" data-category="hotel">
+            <img src="./assets/hotel-1.svg" alt="Hotel room interior" data-full="./assets/hotel-1.svg" onclick="openLightbox(this)" />
+            <figcaption>Hotel — Suite Interior</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="hotel">
+            <img src="./assets/hotel-2.svg" alt="Hotel exterior" data-full="./assets/hotel-2.svg" onclick="openLightbox(this)" />
+            <figcaption>Hotel — Exterior & Pool</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="hotel">
+            <img src="./assets/hotel-3.svg" alt="BnB cozy corner" data-full="./assets/hotel-3.svg" onclick="openLightbox(this)" />
+            <figcaption>BnB — Cozy Corner</figcaption>
+          </figure>
+
+          <!-- Community & Outreach -->
+          <figure class="gallery-item" data-category="community">
+            <img src="./assets/community-1.svg" alt="Community meeting planning water access" data-full="./assets/community-1.svg" onclick="openLightbox(this)" />
+            <figcaption>Community — Water project meeting</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="community">
+            <img src="./assets/community-2.svg" alt="Instructor teaching skills workshop" data-full="./assets/community-2.svg" onclick="openLightbox(this)" />
+            <figcaption>Community — Skills workshop</figcaption>
+          </figure>
+          <figure class="gallery-item" data-category="community">
+            <img src="./assets/community-3.svg" alt="Children at a pop-up classroom" data-full="./assets/community-3.svg" onclick="openLightbox(this)" />
+            <figcaption>Community — Pop-up classroom</figcaption>
+          </figure>
         </div>
       </div>
     </section>
+     <!-- START: ABOUT SECTION (about) -->
     <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
+      <p class="section__text__p1">About Me</p>
+      <h1 class="title">Who I Am</h1>
+      <div class="about-container">
+        <div class="about-details">
+          <div class="details-container">
+            <h3>Experience</h3>
+            <p>3+ years <br />Professional Photography</p>
+          </div>
+          <div class="details-container">
+            <img
+              src="./assets/education.png"
+              alt="Education icon"
+              class="icon"
+            />
+            <h3>Education</h3>
+            <p>Bachelor in Fine Arts <br />Photography</p>
+          </div>
         </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>1+ years <br />Frontend Development</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p> Diploma in Automotive Engineering</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>I’m a passionate, detail-oriented creative focused on transforming ideas into meaningful digital experiences. With skills in design, development, and problem-solving, I craft clean, user-friendly solutions that blend aesthetics with functionality. Constantly exploring new tools, I aim to create impactful, visually appealing work that connects with people and drives real results.            </p>
-            </p>
-          </div>
+        <div class="text-container">
+          <p>Every frame tells a story. I'm passionate about capturing authentic moments—the emotion, the light, the truth beneath the surface. Through portraits, events, and editorial work, I blend technical expertise with creative intuition to deliver photographs that communicate, inspire, and endure.</p>
         </div>
       </div>
       <img
         src="./assets/arrow.png"
         alt="Arrow icon"
         class="icon arrow"
-        onclick="location.href='./#experience'"
+        onclick="location.href='./#projects'"
       />
-    </section>
+    <!-- END: PORTFOLIO SECTION (projects) -->
+    <!-- START: EXPERIENCE SECTION (experience) -->
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Experience</h1>
@@ -181,7 +224,7 @@
                 />
                 <div>
                   <h3>Bootstrap</h3>
-                  <p>Basic</p>
+                  <p>Intermediate</p>
                 </div>
               </article>
               
@@ -218,83 +261,25 @@
         onclick="location.href='./#projects'"
       />
     </section>
+    <!-- END: EXPERIENCE SECTION (experience) -->
+    <!-- START: SECOND PORTFOLIO SECTION (projects) 
     <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Gayalwa?tab=repositories'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Gayalwa?tab=repositories'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Gayalwa?tab=repositories'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Gayalwa?tab=repositories'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Gayalwa?tab=repositories'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Gayalwa?tab=repositories'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
+      <p class="section__text__p1">Selected Works</p>
+      <h1 class="title">Portfolio</h1>
+      <div class="portfolio-container">
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="./assets/project-1.png" alt="Photo 1" data-full="./assets/project-1.png" onclick="openLightbox(this)" />
+            <figcaption>Photo 1 — Location / Short caption</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="./assets/project-2.png" alt="Photo 2" data-full="./assets/project-2.png" onclick="openLightbox(this)" />
+            <figcaption>Photo 2 — Location / Short caption</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="./assets/project-3.png" alt="Photo 3" data-full="./assets/project-3.png" onclick="openLightbox(this)" />
+            <figcaption>Project 3 </figcaption>
+          </figure>
         </div>
       </div>
       <img
@@ -304,6 +289,17 @@
         onclick="location.href='./#contact'"
       />
     </section>
+    END: SECOND PORTFOLIO SECTION (projects) --> -->
+
+    <!-- Lightbox modal for viewing photos -->
+    <div id="lightbox" class="lightbox hidden" onclick="closeLightbox(event)">
+      <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+      <button class="lightbox-prev" onclick="showPrev(event)">&#10094;</button>
+      <button class="lightbox-next" onclick="showNext(event)">&#10095;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+    <!-- START: CONTACT SECTION (contact) -->
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
@@ -314,31 +310,24 @@
             alt="Email icon"
             class="icon contact-icon email-icon"
           />
-          <p><a href="mailto:examplemail@gmail.com">example@gmail.com</a></p>
+          <p><a href="mailto:examplemail@gmail.com">makalizudesmond@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
           <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
+            src="./assets/phone.svg"
+            alt="Phone icon"
             class="icon contact-icon"
           />
-          <p><a href="https://www.linkedin.com/feed/">LinkedIn</a></p>
+          <p><a href="tel:0704535895">0704535895</a></p>
         </div>
       </div>
     </section>
+    <!-- END: CONTACT SECTION (contact) -->
+    <!-- START: FOOTER -->
     <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2025 Arthur Lumwagi. All Rights Reserved.</p>
+      <p>Copyright &#169; 2026 Desmond Makalizu. All Rights Reserved.</p>
     </footer>
+    <!-- END: FOOTER -->
     <script src="script.js"></script>
   </body>
 </html>
