@@ -1,0 +1,425 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'portfolio/css/mediaqueries.css' %}" />
+    <style>
+       
+    </style>
+  </head>
+  <body>
+    <nav>
+  <div class="nav-container">
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li class="nav-logo">
+        <a href="#home">
+          <img src="{% static 'portfolio/assets/images/navbarlogo.jpeg' %}" alt="Logo" />
+        </a>
+      </li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" onclick="openPopup(); return false;">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+    <!-- START: HERO SECTION (profile) -->
+    <section id="profile" class="hero-page">
+      <div class="hero-inner">
+        <h1 class="title">Visual Storytelling</h1>
+        <p class="section__text__p2 hero-sub">Through the lens of emotion</p>
+        <p class="hero-lead">Every frame tells a story. I'm passionate about capturing authentic moments—the emotion, the light, the truth beneath the surface. Through portraits, events, and editorial work, I blend technical expertise with creative intuition to deliver photographs that communicate, inspire, and endure.</p>
+        <div class="btn-container">
+          <button class="btn btn-color-2" onclick="location.href='./#projects'">View Portfolio</button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact</button>
+        </div>
+
+      </div>
+      <button class="scroll-indicator" aria-label="Scroll down">
+        <div class="scroll-icon"></div>
+      </button>
+    </section>
+    <!-- END: HERO SECTION (profile) -->
+    <!-- START: PORTFOLIO SECTION (projects) -->
+    <section id="projects">
+      <h1 class="title">Portfolio</h1>
+      <p class="section__text__p1">Selected Works</p>
+      <div class="portfolio-container">
+        <div class="gallery-filters">
+          <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+          <button class="filter-btn" onclick="filterGallery('wedding', this)">Wedding</button>
+          <button class="filter-btn" onclick="filterGallery('adventure', this)">Adventure</button>
+          <button class="filter-btn" onclick="filterGallery('corporate', this)">Corporate</button>
+          <button class="filter-btn" onclick="filterGallery('hotel', this)">Hotel / BnB</button>
+          <button class="filter-btn" onclick="filterGallery('community', this)">Community</button>
+        </div>
+
+       <div class="gallery-grid">
+
+  <!-- Wedding -->
+  <figure class="gallery-item" data-category="wedding">
+    <img src="{% static 'portfolio/assets/images/wedding-1.svg' %}"
+         alt="Wedding couple portrait"
+         data-full="{% static 'portfolio/assets/images/wedding-1.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Wedding — Ceremony, 2025</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="wedding">
+    <img src="{% static 'portfolio/assets/images/wedding-2.svg' %}"
+         alt="Wedding detail rings"
+         data-full="{% static 'portfolio/assets/images/wedding-2.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Wedding — Rings & Details</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="wedding">
+    <img src="{% static 'portfolio/assets/images/wedding-3.svg' %}"
+         alt="Wedding group photo"
+         data-full="{% static 'portfolio/assets/images/wedding-3.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Wedding — Family Portrait</figcaption>
+  </figure>
+
+  <!-- Adventure -->
+  <figure class="gallery-item" data-category="adventure">
+    <img src="{% static 'portfolio/assets/images/adventure-1.svg' %}"
+         alt="Hiker on ridge"
+         data-full="{% static 'portfolio/assets/images/adventure-1.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Adventure — Mountain Ridge</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="adventure">
+    <img src="{% static 'portfolio/assets/images/adventure-2.svg' %}"
+         alt="Kayaking at sunset"
+         data-full="{% static 'portfolio/assets/images/adventure-2.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Adventure — Kayak Sunset</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="adventure">
+    <img src="{% static 'portfolio/assets/images/adventure-3.svg' %}"
+         alt="Off-road vehicle"
+         data-full="{% static 'portfolio/assets/images/adventure-3.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Adventure — Off-road</figcaption>
+  </figure>
+
+  <!-- Corporate -->
+  <figure class="gallery-item" data-category="corporate">
+    <img src="{% static 'portfolio/assets/images/corporate-1.svg' %}"
+         alt="Corporate headshot"
+         data-full="{% static 'portfolio/assets/images/corporate-1.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Corporate — Headshot</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="corporate">
+    <img src="{% static 'portfolio/assets/images/corporate-2.svg' %}"
+         alt="Conference event"
+         data-full="{% static 'portfolio/assets/images/corporate-2.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Corporate — Conference</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="corporate">
+    <img src="{% static 'portfolio/assets/images/corporate-3.svg' %}"
+         alt="Office interior"
+         data-full="{% static 'portfolio/assets/images/corporate-3.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Corporate — Office Space</figcaption>
+  </figure>
+
+  <!-- Hotel / BnB -->
+  <figure class="gallery-item" data-category="hotel">
+    <img src="{% static 'portfolio/assets/images/hotel-1.svg' %}"
+         alt="Hotel room interior"
+         data-full="{% static 'portfolio/assets/images/hotel-1.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Hotel — Suite Interior</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="hotel">
+    <img src="{% static 'portfolio/assets/images/hotel-2.svg' %}"
+         alt="Hotel exterior"
+         data-full="{% static 'portfolio/assets/images/hotel-2.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Hotel — Exterior & Pool</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="hotel">
+    <img src="{% static 'portfolio/assets/images/hotel-3.svg' %}"
+         alt="BnB cozy corner"
+         data-full="{% static 'portfolio/assets/images/hotel-3.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>BnB — Cozy Corner</figcaption>
+  </figure>
+
+  <!-- Community & Outreach -->
+  <figure class="gallery-item" data-category="community">
+    <img src="{% static 'portfolio/assets/images/community-1.svg' %}"
+         alt="Community meeting planning water access"
+         data-full="{% static 'portfolio/assets/images/community-1.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Community — Water project meeting</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="community">
+    <img src="{% static 'portfolio/assets/images/community-2.svg' %}"
+         alt="Instructor teaching skills workshop"
+         data-full="{% static 'portfolio/assets/images/community-2.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Community — Skills workshop</figcaption>
+  </figure>
+
+  <figure class="gallery-item" data-category="community">
+    <img src="{% static 'portfolio/assets/images/community-3.svg' %}"
+         alt="Children at a pop-up classroom"
+         data-full="{% static 'portfolio/assets/images/community-3.svg' %}"
+         onclick="openLightbox(this)">
+    <figcaption>Community — Pop-up classroom</figcaption>
+  </figure>
+
+</div>
+
+        </div>
+      </div>
+    </section>
+     <!-- START: ABOUT SECTION (about) -->
+    <section id="about">
+  <div class="why-choose-section">
+    <div class="content-side">
+      <h2 class="section-title">Why Choose Us </h2>
+
+      <div class="features-grid">
+        <!-- Timeless Imagery -->
+        <div class="feature-card highlight">
+          <div class="feature-icon">
+            <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Timeless Imagery</h3>
+          <p class="feature-description">Cinematic, high-fidelity photos that preserve moments and emotion for a lifetime.</p>
+        </div>
+
+        <!-- Brand-Focused Storytelling -->
+        <div class="feature-card dark">
+          <div class="feature-icon">
+            <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Brand-Focused Storytelling</h3>
+          <p class="feature-description">Visual narratives crafted to amplify your brand voice and connect with your audience.</p>
+        </div>
+
+        <!-- Confident Direction -->
+        <div class="feature-card dark">
+          <div class="feature-icon">
+            <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Confident Direction</h3>
+          <p class="feature-description">Experienced guidance that makes every session relaxed, efficient, and beautifully composed.</p>
+        </div>
+
+
+        <!-- Tailored Solutions -->
+        <div class="feature-card dark">
+          <div class="feature-icon">
+            <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Tailored Solutions</h3>
+          <p class="feature-description">Flexible packages and creative approaches tailored to your timeline and budget.</p>
+        </div>
+
+        <!-- Feature-card -->
+        <div class="feature-card dark">
+          <div class="feature-icon">
+            <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Polished Retouching</h3>
+          <p class="feature-description">Expert color, tone, and detail work that elevates each image while maintaining authenticity.</p>
+        </div>
+        
+        <!-- Studio & Location Scouting -->
+        <div class="feature-card dark">
+          <div class="feature-icon">
+            <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M5 7v10a2 2 0 002 2h10a2 2 0 002-2V7" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Studio & Location Scouting</h3>
+          <p class="feature-description">We source and prep the perfect environments from intimate studios to striking outdoor locations.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+    
+    <!-- START OF SECOND PORTFOLIO SECTION (projects) -->
+
+    <!-- Lightbox modal for viewing photos -->
+    <div id="lightbox" class="lightbox hidden" onclick="closeLightbox(event)">
+      <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+      <button class="lightbox-prev" onclick="showPrev(event)">&#10094;</button>
+      <button class="lightbox-next" onclick="showNext(event)">&#10095;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+    <!-- START: CONTACT SECTION (contact) -->
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Us</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="{% static 'portfolio/assets/images/email.png' %}"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:examplemail@gmail.com">makalizudesmond@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="{% static 'portfolio/assets/images/phone.svg' %}"
+            alt="Phone icon"
+            class="icon contact-icon"
+          />
+          <p><a href="tel:0704535895">0704535895</a></p>
+        </div>
+      </div>
+    </section>
+    <!-- END: CONTACT SECTION (contact) -->
+    <!-- START: FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="{% static 'portfolio/assets/images/navbarlogo.jpeg' %}" alt="Logo" class="footer-logo" />
+          <p class="footer-tagline">Your story deserves to be told, <br> let's make it happen.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p> PRIVACY POLICY   TERMS   © 2026 Mk-Photography. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- END: FOOTER -->
+
+    <!-- START: BOOKING POPUP -->
+    <div class="popup-overlay" id="bookingPopup">
+        <div class="popup-container">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            
+            <!-- Form Content -->
+            <div class="popup-content" id="formContent">
+                <h2>BOOK A SESSION</h2>
+                <p>Let's create something beautiful together.</p>
+
+                <form class="booking-form" id="bookingForm" method="POST" action="{% url 'portfolio:booking_submit' %}">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Photography Service *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="wedding">Wedding Photography</option>
+                            <option value="adventure">Adventure Photography</option>
+                            <option value="corporate">Corporate Photography</option>
+                            <option value="hotel">Hotel / BnB Photography</option>
+                            <option value="community">Community / Outreach Photography</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="preferred_date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="City or venue">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell me about your vision *</label>
+                        <textarea id="message" name="message" required placeholder="Describe what you're looking for..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <h3>Thank You!</h3>
+                <p>Your booking request has been received. We'll get back to you within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+    <!-- END: BOOKING POPUP -->
+
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
+    <script>
+        // BOOKING POPUP FUNCTIONS
+        function openPopup() {
+            document.getElementById('bookingPopup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            document.getElementById('bookingPopup').classList.remove('active');
+            document.body.style.overflow = '';
+            
+            setTimeout(() => {
+                document.getElementById('formContent').style.display = 'block';
+                document.getElementById('successMessage').classList.remove('active');
+                document.getElementById('bookingForm').reset();
+            }, 300);
+        }
+
+        document.getElementById('bookingPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Optional: Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
+    </script>
+  </body>
+</html>
